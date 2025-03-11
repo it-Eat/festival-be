@@ -5,20 +5,28 @@ const createBooth = asyncHandle(async (req, res, next) => {
   try {
     const { id: userId } = req.user;
     const { festivalId } = req.params;
-    const boothImage = req.file ? req.file.location : undefined;
-    const { name, content, boothType, typeCategory, accountNumber, bankName } =
-      req.body;
+    const image = req.file ? req.file.location : undefined;
+    const {
+      name,
+      content,
+      boothType,
+      typeCategory,
+      accountNumber,
+      bankName,
+      businessNumber,
+    } = req.body;
     const booth = await boothService.createBooth(
       parseInt(userId),
       parseInt(festivalId),
       {
         name,
         content,
-        boothImage,
+        image,
         boothType,
         typeCategory,
         accountNumber,
         bankName,
+        businessNumber,
       }
     );
     res.status(201).send(booth);
