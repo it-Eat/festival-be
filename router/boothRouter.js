@@ -3,6 +3,7 @@ import passport from "../config/passportConfig.js";
 import boothController from "../controllers/boothController.js";
 import boothValidation from "../middleware/booth/boothValidation.js";
 import { uploadImage } from "../middleware/image/uploadMiddleware.js";
+
 const router = express.Router();
 
 router
@@ -29,8 +30,8 @@ router
   .route("/:festivalId")
   .post(
     passport.authenticate("access-token", { session: false }),
-    boothValidation,
     uploadImage("image", false),
+    boothValidation,
     boothController.createBooth
   )
   .get(boothController.getBooths);

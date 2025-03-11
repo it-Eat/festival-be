@@ -14,7 +14,6 @@ const createBooth = (userId, festivalId, data, boothImage) => {
         },
       },
       ...data,
-      image: boothImage,
     },
   });
 };

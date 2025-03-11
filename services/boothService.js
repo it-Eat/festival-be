@@ -1,13 +1,8 @@
 import boothRepository from "../repositorys/boothRepository.js";
 import checkUser from "../utils/checkUser.js";
 
-const createBooth = async (userId, festivalId, data, boothImage) => {
-  const booth = await boothRepository.createBooth(
-    userId,
-    festivalId,
-    data,
-    boothImage
-  );
+const createBooth = async (userId, festivalId, data) => {
+  const booth = await boothRepository.createBooth(userId, festivalId, data);
   return booth;
 };
 
