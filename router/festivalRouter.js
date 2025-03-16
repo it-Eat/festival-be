@@ -8,4 +8,6 @@ router
   .route("/:festivalId")
   .patch(uploadImage("image", false), patchFestivalController.patchFestival);
 
+router.route("/").get(patchFestivalController.getFestival);
+
 export default router;
