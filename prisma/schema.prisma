@@ -97,8 +97,8 @@ model Participation {
   festivalId Int
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  festival   Festival @relation(fields: [festivalId], references: [id])
-  user       User     @relation(fields: [userId], references: [id])
+  festival   Festival @relation(fields: [festivalId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Notification {
@@ -108,7 +108,7 @@ model Notification {
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Board {
@@ -122,8 +122,8 @@ model Board {
   lossType   LossType  @default(NULL)
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
-  user       User      @relation(fields: [userId], references: [id])
-  festival   Festival  @relation(fields: [festivalId], references: [id])
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  festival   Festival  @relation(fields: [festivalId], references: [id], onDelete: Cascade)
   comments   Comment[]
 }
 
@@ -134,7 +134,7 @@ model Comment {
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   board     Board    @relation(fields: [boardId], references: [id], onDelete: Cascade)
 }
 
@@ -145,7 +145,7 @@ model Notice {
   content    String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  admin      User     @relation(fields: [adminId], references: [id])
+  admin      User     @relation(fields: [adminId], references: [id], onDelete: Cascade)
 }
 
 model Booth {
@@ -165,8 +165,8 @@ model Booth {
   businessNumber String
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
-  festival       Festival   @relation(fields: [festivalId], references: [id])
-  user           User       @relation(fields: [userId], references: [id])
+  festival       Festival   @relation(fields: [festivalId], references: [id], onDelete: Cascade)
+  user           User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   review         Review[]
   menu           Menu[]
   wishList       WishList[]
@@ -180,7 +180,7 @@ model Review {
   score     Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   booth     Booth    @relation(fields: [boothId], references: [id], onDelete: Cascade)
 }
 
@@ -209,7 +209,7 @@ model WishList {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   menu      Menu     @relation(fields: [menuId], references: [id], onDelete: Cascade)
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   booth     Booth    @relation(fields: [boothId], references: [id], onDelete: Cascade)
   pay       Pay[]
 }
@@ -224,6 +224,6 @@ model Pay {
   isReviewed    Boolean    @default(false)
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
-  user          User       @relation(fields: [userId], references: [id])
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   wishList      WishList[]
 }
