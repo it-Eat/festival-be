@@ -14,4 +14,18 @@ const patchFestivalController = asyncHandle(async (req, res, next) => {
   }
 });
 
-export default { patchFestival: patchFestivalController };
+const getFestival = asyncHandle(async (req, res, next) => {
+  try {
+    const { limit, cursor, keyword } = req.query;
+    const data = await festivalService.getFestival(
+      parseInt(cursor) || 1,
+      parseInt(limit) || 10,
+      keyword
+    );
+    res.status(200).send(data);
+  } catch (error) {
+    next(error);
+  }
+});
+
+export default { patchFestival: patchFestivalController, getFestival };

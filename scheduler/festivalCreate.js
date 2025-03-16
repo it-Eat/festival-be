@@ -10,7 +10,14 @@ const createFestival = async () => {
     const festivalData = response.data.response.body.items.item;
 
     for (const festival of festivalData) {
-      const { contentid, firstimage } = festival;
+      const {
+        contentid,
+        firstimage,
+        addr1,
+        title,
+        eventstartdate,
+        eventenddate,
+      } = festival;
       const festivalCode = parseInt(contentid);
       const festivalData = await prisma.festival.upsert({
         where: { festivalCode },
@@ -20,6 +27,10 @@ const createFestival = async () => {
         create: {
           festivalCode,
           mapImage: firstimage,
+          address: addr1,
+          festivalName: title,
+          eventStartDate: eventstartdate,
+          eventEndDate: eventenddate,
         },
       });
 
