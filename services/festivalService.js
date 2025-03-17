@@ -8,4 +8,9 @@ const patchFestivalImg = async (festivalId, mapImage) => {
   return festivalPatch;
 };
 
-export default { patchFestivalImg };
+const getFestival = async (cursor, limit, keyword) => {
+  const festival = await festivalRepository.getFestival(cursor, limit, keyword);
+  return festival;
+};
+
+export default { patchFestivalImg, getFestival };

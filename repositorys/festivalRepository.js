@@ -12,4 +12,24 @@ const festivalImagePatch = async (festivalId, mapImage) => {
   return data;
 };
 
-export default { festivalImagePatch };
+const getFestival = async (cursor, limit, keyword) => {
+  const data = await prisma.festival.findMany({
+    where: {
+      festivalName: {
+        contains: keyword,
+        mode: "insensitive",
+      },
+      ...(cursor ? { id: { gt: cursor } } : {}),
+    },
+    take: limit,
+    orderBy: {
+      id: "asc",
+    },
+  });
+
+  return {
+    items: data,
+    nextCursor: data.length === limit ? data[data.length - 1].id : null,
+  };
+};
+export default { festivalImagePatch, getFestival };
