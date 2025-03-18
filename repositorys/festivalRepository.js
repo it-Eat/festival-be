@@ -15,15 +15,18 @@ const festivalImagePatch = async (festivalId, mapImage) => {
 const getFestival = async (cursor, limit, keyword) => {
   const data = await prisma.festival.findMany({
     where: {
+      eventStartDate: {
+        not: null,
+      },
       festivalName: {
         contains: keyword,
         mode: "insensitive",
       },
-      ...(cursor ? { id: { gt: cursor } } : {}),
+      ...(cursor ? { id: { gte: cursor } } : {}),
     },
     take: limit,
     orderBy: {
-      id: "asc",
+      eventStartDate: "desc",
     },
   });
 
