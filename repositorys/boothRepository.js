@@ -65,7 +65,14 @@ const getBoothAdmin = (festivalId, page, pageSize, orderBy, keyword, type) => {
   });
 };
 
-const getBooths = (festivalId, page, pageSize, orderBy, keyword, type) => {
+const getBooths = async (
+  festivalId,
+  page,
+  pageSize,
+  orderBy,
+  keyword,
+  type
+) => {
   const skip = (page - 1) * pageSize;
   const where = {
     festivalId: festivalId,
@@ -94,7 +101,7 @@ const getBooths = (festivalId, page, pageSize, orderBy, keyword, type) => {
     orderBy = "recent";
   }
 
-  return prisma.booth.findMany({
+  const booths = await prisma.booth.findMany({
     where,
     take: pageSize,
     skip,
@@ -108,12 +115,28 @@ const getBooths = (festivalId, page, pageSize, orderBy, keyword, type) => {
           role: true,
         },
       },
+      review: true,
+      menu: true,
     },
   });
+  const boothsWithAvgScore = booths.map((booth) => {
+    const avgScore =
+      booth.review.length > 0
+        ? booth.review.reduce((sum, review) => sum + review.score, 0) /
+          booth.review.length
+        : 0;
+
+    return {
+      ...booth,
+      avgReviewScore: parseFloat(avgScore.toFixed(1)),
+    };
+  });
+
+  return boothsWithAvgScore;
 };
 
-const getBooth = (boothId) => {
-  return prisma.booth.findUnique({
+const getBooth = async (boothId) => {
+  const booth = await prisma.booth.findUnique({
     where: {
       id: boothId,
     },
@@ -126,8 +149,19 @@ const getBooth = (boothId) => {
           role: true,
         },
       },
+      review: true,
+      menu: true,
     },
   });
+  const boothWithAvgScore = {
+    ...booth,
+    avgReviewScore: parseFloat(
+      booth.review.reduce((sum, review) => sum + review.score, 0) /
+        booth.review.length
+    ).toFixed(1),
+  };
+
+  return boothWithAvgScore;
 };
 
 const updateBooth = (boothId, data, boothImage) => {
