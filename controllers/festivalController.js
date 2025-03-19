@@ -18,8 +18,8 @@ const getFestival = asyncHandle(async (req, res, next) => {
   try {
     const { limit, cursor, keyword } = req.query;
     const data = await festivalService.getFestival(
-      parseInt(cursor) || 1,
-      parseInt(limit) || 10,
+      parseInt(cursor) || null,
+      parseInt(limit) || 12,
       keyword
     );
     res.status(200).send(data);
