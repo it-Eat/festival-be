@@ -168,14 +168,13 @@ const getBooth = async (boothId) => {
   return boothWithAvgScore;
 };
 
-const updateBooth = (boothId, data, image) => {
+const updateBooth = (boothId, data) => {
   return prisma.booth.update({
     where: {
       id: boothId,
     },
     data: {
       ...data,
-      image: image,
     },
   });
 };
