@@ -80,8 +80,12 @@ const getBooths = async (
   };
 
   const validBoothTypes = ["EAT", "PLAY", "ETC"];
-  if (type && validBoothTypes.includes(type)) {
+  if (type && validBoothTypes.includes(type) && type === "EAT") {
     where.boothType = type;
+  } else {
+    where.boothType = {
+      in: ["PLAY", "ETC"],
+    };
   }
 
   if (keyword) {
