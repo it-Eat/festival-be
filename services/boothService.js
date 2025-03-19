@@ -60,7 +60,7 @@ const updateBooth = async (
   userId,
   userRole,
   data,
-  boothImage
+  image
 ) => {
   if (userRole !== "ADMIN") {
     const boothUser = await boothRepository.getBooth(boothId);
@@ -73,7 +73,7 @@ const updateBooth = async (
   }
   await checkUser(userId, festivalId);
 
-  return await boothRepository.updateBooth(boothId, data, boothImage);
+  return await boothRepository.updateBooth(boothId, data, image);
 };
 
 const getMyBooths = async (userId, festivalId) => {

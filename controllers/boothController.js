@@ -106,7 +106,7 @@ const updateBooth = asyncHandle(async (req, res, next) => {
   try {
     const { id: userId, role: userRole } = req.user;
     const { festivalId, boothId } = req.params;
-    const boothImage = req.file ? req.file.location : undefined;
+    const image = req.file ? req.file.location : undefined;
     const {
       name,
       content,
@@ -125,7 +125,7 @@ const updateBooth = asyncHandle(async (req, res, next) => {
       {
         name,
         content,
-        boothImage,
+        image,
         boothType,
         typeCategory,
         accountNumber,
