@@ -144,6 +144,23 @@ const createBoardController = asyncHandle(async (req, res, next) => {
   }
 });
 
+const getMyBoardController = asyncHandle(async (req, res, next) => {
+  try {
+    const { id: userId } = req.user;
+    const { festivalId } = req.params;
+    const { page = 1, pageSize = 10, orderBy = "recent" } = req.query;
+    const data = await boardService.getMyBoard(
+      parseInt(festivalId),
+      parseInt(userId),
+      parseInt(page),
+      parseInt(pageSize),
+      orderBy
+    );
+    res.status(200).send(data);
+  } catch (error) {
+    next(error);
+  }
+});
 export default {
   createBoard: createBoardController,
   getBoard: getBoardController,
@@ -152,4 +169,5 @@ export default {
   patchBoard: patchBoardController,
   deleteBoard: deleteBoardController,
   adminGetBoard: adminGetBoardController,
+  getMyBoard: getMyBoardController,
 };
