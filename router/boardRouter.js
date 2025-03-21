@@ -5,6 +5,12 @@ import { uploadImage } from "../middleware/image/uploadMiddleware.js";
 const router = express.Router();
 
 router.route("/board-loss/:festivalId").get(boardController.getLossBoard);
+router
+  .route("/my-board/:festivalId")
+  .get(
+    passport.authenticate("access-token", { session: false }),
+    boardController.getMyBoard
+  );
 
 router
   .route("/admin/:festivalId")

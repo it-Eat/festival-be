@@ -160,6 +160,17 @@ const createBoard = async (
   return data;
 };
 
+const getMyBoard = async (festivalId, userId, page, pageSize, orderBy) => {
+  const data = await boardRepository.getMyBoard(
+    festivalId,
+    userId,
+    page,
+    pageSize,
+    orderBy
+  );
+  return data;
+};
+
 export default {
   createBoard,
   getBoard,
@@ -168,4 +179,5 @@ export default {
   patchBoard,
   deleteBoard,
   adminGetBoard,
+  getMyBoard,
 };

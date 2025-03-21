@@ -182,6 +182,20 @@ const createBoard = (
   return data;
 };
 
+const getMyBoard = (festivalId, userId, page, pageSize, orderBy) => {
+  const data = prisma.board.findMany({
+    where: {
+      festivalId: festivalId,
+      userId: userId,
+    },
+    skip: (page - 1) * pageSize,
+    take: pageSize,
+    orderBy: {
+      createdAt: orderBy === "recent" ? "desc" : "asc",
+    },
+  });
+  return data;
+};
 export default {
   createBoard,
   getBoard,
@@ -190,4 +204,5 @@ export default {
   patchBoard,
   deleteBoard,
   adminGetBoard,
+  getMyBoard,
 };
