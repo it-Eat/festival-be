@@ -182,11 +182,12 @@ const createBoard = (
   return data;
 };
 
-const getMyBoard = (festivalId, userId, page, pageSize, orderBy) => {
+const getMyBoard = (festivalId, userId, page, pageSize, orderBy, boardType) => {
   const data = prisma.board.findMany({
     where: {
       festivalId: festivalId,
       userId: userId,
+      boardType: boardType,
     },
     skip: (page - 1) * pageSize,
     take: pageSize,

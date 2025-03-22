@@ -160,13 +160,21 @@ const createBoard = async (
   return data;
 };
 
-const getMyBoard = async (festivalId, userId, page, pageSize, orderBy) => {
+const getMyBoard = async (
+  festivalId,
+  userId,
+  page,
+  pageSize,
+  orderBy,
+  boardType
+) => {
   const data = await boardRepository.getMyBoard(
     festivalId,
     userId,
     page,
     pageSize,
-    orderBy
+    orderBy,
+    boardType
   );
   return data;
 };

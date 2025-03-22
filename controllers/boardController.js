@@ -148,13 +148,19 @@ const getMyBoardController = asyncHandle(async (req, res, next) => {
   try {
     const { id: userId } = req.user;
     const { festivalId } = req.params;
-    const { page = 1, pageSize = 10, orderBy = "recent" } = req.query;
+    const {
+      page = 1,
+      pageSize = 10,
+      orderBy = "recent",
+      boardType,
+    } = req.query;
     const data = await boardService.getMyBoard(
       parseInt(festivalId),
       parseInt(userId),
       parseInt(page),
       parseInt(pageSize),
-      orderBy
+      orderBy,
+      boardType
     );
     res.status(200).send(data);
   } catch (error) {
