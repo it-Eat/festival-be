@@ -42,9 +42,6 @@ const adminGetBoard = async (
       },
     ],
   };
-  const totalCount = await prisma.board.count({
-    where: whereCondition,
-  });
 
   if (startDate) {
     const startDateTime = new Date(startDate);
@@ -62,7 +59,9 @@ const adminGetBoard = async (
       lte: endDateTime,
     };
   }
-
+  const totalCount = await prisma.board.count({
+    where: whereCondition,
+  });
   const data = await prisma.board.findMany({
     where: whereCondition,
     skip: (page - 1) * pageSize,
