@@ -8,11 +8,13 @@ const adminGetBoard = (
   keyword,
   boardType,
   startDate,
-  endDate
+  endDate,
+  lossType
 ) => {
   const whereCondition = {
     festivalId: festivalId,
     boardType: boardType,
+    lossType: lossType,
     OR: [
       {
         title: {

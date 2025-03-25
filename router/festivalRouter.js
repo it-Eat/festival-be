@@ -10,4 +10,6 @@ router
 
 router.route("/").get(patchFestivalController.getFestival);
 
+router.route("/:festivalId").get(patchFestivalController.getFestivalById);
+
 export default router;

@@ -18,7 +18,14 @@ const createBooth = (userId, festivalId, data, boothImage) => {
   });
 };
 
-const getBoothAdmin = (festivalId, page, pageSize, orderBy, keyword, type) => {
+const getBoothAdmin = async (
+  festivalId,
+  page,
+  pageSize,
+  orderBy,
+  keyword,
+  type
+) => {
   const skip = (page - 1) * pageSize;
   const where = {
     festivalId: festivalId,
@@ -41,12 +48,17 @@ const getBoothAdmin = (festivalId, page, pageSize, orderBy, keyword, type) => {
   }
 
   const validOrders = ["recent", "older"];
-
   if (!validOrders.includes(orderBy)) {
     orderBy = "recent";
   }
 
-  return prisma.booth.findMany({
+  // 총 개수 조회
+  const total = await prisma.booth.count({
+    where,
+  });
+
+  // 부스 데이터 조회
+  const booths = await prisma.booth.findMany({
     where,
     take: pageSize,
     skip,
@@ -63,6 +75,11 @@ const getBoothAdmin = (festivalId, page, pageSize, orderBy, keyword, type) => {
       festival: true,
     },
   });
+
+  return {
+    booths,
+    total,
+  };
 };
 
 const getBooths = async (

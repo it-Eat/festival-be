@@ -13,4 +13,9 @@ const getFestival = async (cursor, limit, keyword) => {
   return festival;
 };
 
-export default { patchFestivalImg, getFestival };
+const getFestivalById = async (festivalId) => {
+  const festival = await festivalRepository.getFestivalById(festivalId);
+  return festival;
+};
+
+export default { patchFestivalImg, getFestival, getFestivalById };
