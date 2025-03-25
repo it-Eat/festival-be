@@ -14,7 +14,7 @@ const adminGetBoard = (
   const whereCondition = {
     festivalId: festivalId,
     boardType: boardType,
-    lossType: lossType,
+    lossType: lossType || undefined,
     OR: [
       {
         title: {
