@@ -53,7 +53,7 @@ const deleteWishlist = async (wishlistId) => {
 };
 
 const getWishlists = (userId, boothId) => {
-  return prisma.wishList.findMany({
+  return prisma.wishList.findMany.groupBy(boothId)({
     where: {
       userId: userId,
       boothId: boothId,
@@ -64,6 +64,12 @@ const getWishlists = (userId, boothId) => {
           id: true,
           name: true,
           price: true,
+        },
+      },
+      booth: {
+        select: {
+          id: true,
+          name: true,
         },
       },
     },
