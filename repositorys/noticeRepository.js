@@ -21,6 +21,11 @@ const patchNotice = (userId, noticeId, content) => {
   return data;
 };
 const getNotice = (festivalId, page, pageSize, orderBy) => {
+  const total = prisma.notice.count({
+    where: {
+      festivalId: festivalId,
+    },
+  });
   const data = prisma.notice.findMany({
     where: {
       festivalId: festivalId,
@@ -31,7 +36,10 @@ const getNotice = (festivalId, page, pageSize, orderBy) => {
     skip: (page - 1) * pageSize,
     take: pageSize,
   });
-  return data;
+  return {
+    items: data,
+    totalPages: Math.ceil(total / pageSize),
+  };
 };
 
 const createNotice = (userId, festivalId, content) => {
