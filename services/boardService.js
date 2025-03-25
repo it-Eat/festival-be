@@ -65,7 +65,7 @@ const adminGetBoard = async (
 
   await checkUser(userId, festivalId);
 
-  const data = await boardRepository.adminGetBoard(
+  const { data, totalPage } = await boardRepository.adminGetBoard(
     festivalId,
     page,
     pageSize,
@@ -87,7 +87,7 @@ const adminGetBoard = async (
       };
     })
   );
-  return boardsWithUserInfo;
+  return { data: boardsWithUserInfo, totalPage };
 };
 
 const getLossBoard = async (

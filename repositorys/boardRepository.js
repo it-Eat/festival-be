@@ -1,6 +1,6 @@
 import prisma from "../utils/prismaClient.js";
 
-const adminGetBoard = (
+const adminGetBoard = async (
   festivalId,
   page,
   pageSize,
@@ -42,6 +42,9 @@ const adminGetBoard = (
       },
     ],
   };
+  const totalCount = await prisma.board.count({
+    where: whereCondition,
+  });
 
   if (startDate) {
     const startDateTime = new Date(startDate);
@@ -60,7 +63,7 @@ const adminGetBoard = (
     };
   }
 
-  const data = prisma.board.findMany({
+  const data = await prisma.board.findMany({
     where: whereCondition,
     skip: (page - 1) * pageSize,
     take: pageSize,
@@ -68,7 +71,7 @@ const adminGetBoard = (
       createdAt: orderBy === "recent" ? "desc" : "asc",
     },
   });
-  return data;
+  return { data, totalPage: Math.ceil(totalCount / pageSize) };
 };
 const deleteBoard = (boardId) => {
   const data = prisma.board.delete({

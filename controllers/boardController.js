@@ -18,7 +18,7 @@ const adminGetBoardController = asyncHandle(async (req, res, next) => {
       startDate = "",
       endDate = "",
     } = req.query;
-    const data = await boardService.adminGetBoard(
+    const { data, totalPage } = await boardService.adminGetBoard(
       parseInt(festivalId, 10),
       parseInt(userId, 10),
       parseInt(page, 10) || 1,
@@ -31,7 +31,7 @@ const adminGetBoardController = asyncHandle(async (req, res, next) => {
       startDate,
       endDate
     );
-    res.status(200).send(data);
+    res.status(200).send({ data, totalPage });
   } catch (error) {
     next(error);
   }
