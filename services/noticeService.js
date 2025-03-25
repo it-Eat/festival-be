@@ -14,13 +14,13 @@ const deleteNotice = async (userId, festivalId, noticeId, userRole) => {
 };
 
 const getNotice = async (festivalId, page, pageSize, orderBy) => {
-  const data = await noticeRepository.getNotice(
+  const { data, totalPages } = await noticeRepository.getNotice(
     festivalId,
     page,
     pageSize,
     orderBy
   );
-  return data;
+  return { data, totalPages };
 };
 
 const patchNotice = async (userId, festivalId, noticeId, userRole, content) => {

@@ -20,13 +20,13 @@ const patchNotice = (userId, noticeId, content) => {
   });
   return data;
 };
-const getNotice = (festivalId, page, pageSize, orderBy) => {
-  const total = prisma.notice.count({
+const getNotice = async (festivalId, page, pageSize, orderBy) => {
+  const total = await prisma.notice.count({
     where: {
       festivalId: festivalId,
     },
   });
-  const data = prisma.notice.findMany({
+  const data = await prisma.notice.findMany({
     where: {
       festivalId: festivalId,
     },
@@ -37,7 +37,7 @@ const getNotice = (festivalId, page, pageSize, orderBy) => {
     take: pageSize,
   });
   return {
-    items: data,
+    data,
     totalPages: Math.ceil(total / pageSize),
   };
 };
