@@ -55,6 +55,7 @@ const adminGetBoard = async (
   keyword,
   boardType,
   userRole,
+  lossType,
   startDate,
   endDate
 ) => {
@@ -72,7 +73,8 @@ const adminGetBoard = async (
     keyword,
     boardType,
     startDate,
-    endDate
+    endDate,
+    lossType
   );
 
   const boardsWithUserInfo = await Promise.all(

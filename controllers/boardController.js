@@ -14,6 +14,7 @@ const adminGetBoardController = asyncHandle(async (req, res, next) => {
       orderBy = "recent",
       keyword = "",
       boardType = "",
+      lossType = "",
       startDate = "",
       endDate = "",
     } = req.query;
@@ -26,6 +27,7 @@ const adminGetBoardController = asyncHandle(async (req, res, next) => {
       keyword,
       boardType,
       userRole,
+      lossType,
       startDate,
       endDate
     );

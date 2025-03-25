@@ -55,4 +55,11 @@ const getFestival = async (cursor, limit, keyword) => {
     nextCursor: data.length === limit ? data[data.length - 1].id : null,
   };
 };
-export default { festivalImagePatch, getFestival };
+
+const getFestivalById = async (festivalId) => {
+  const data = await prisma.festival.findUnique({
+    where: { id: festivalId },
+  });
+  return data;
+};
+export default { festivalImagePatch, getFestival, getFestivalById };
