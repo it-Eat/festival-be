@@ -22,7 +22,7 @@ const getBoothAdmin = async (
 
   await checkUser(adminId, festivalId);
 
-  return await boothRepository.getBoothAdmin(
+  const { booths, total } = await boothRepository.getBoothAdmin(
     festivalId,
     page,
     pageSize,
@@ -30,6 +30,8 @@ const getBoothAdmin = async (
     keyword,
     type
   );
+
+  return { booths, total };
 };
 
 const getBooths = async (

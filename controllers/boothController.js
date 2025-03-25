@@ -47,7 +47,7 @@ const getBoothAdmin = asyncHandle(async (req, res, next) => {
       type = "",
     } = req.query;
 
-    const booths = await boothService.getBoothAdmin(
+    const { booths, total } = await boothService.getBoothAdmin(
       parseInt(adminId),
       parseInt(festivalId),
       parseInt(page),
@@ -58,7 +58,7 @@ const getBoothAdmin = asyncHandle(async (req, res, next) => {
       userRole
     );
 
-    res.status(200).send(booths);
+    res.status(200).send({ booths, total });
   } catch (error) {
     next(error);
   }
