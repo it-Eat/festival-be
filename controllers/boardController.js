@@ -38,12 +38,13 @@ const adminGetBoardController = asyncHandle(async (req, res, next) => {
 });
 const deleteBoardController = asyncHandle(async (req, res, next) => {
   try {
-    const { id: userId } = req.user;
+    const { id: userId, role } = req.user;
     const { festivalId, boardId } = req.params;
     const data = await boardService.deleteBoard(
       parseInt(userId),
       parseInt(festivalId),
-      parseInt(boardId)
+      parseInt(boardId),
+      role
     );
     res.status(200).send(data);
   } catch (error) {
