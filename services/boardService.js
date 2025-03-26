@@ -2,10 +2,10 @@ import boardRepository from "../repositorys/boardRepository.js";
 import checkUser from "../utils/checkUser.js";
 import userRepository from "../repositorys/userRepository.js";
 
-const deleteBoard = async (userId, festivalId, boardId) => {
+const deleteBoard = async (userId, festivalId, boardId, role) => {
   await checkUser(userId, festivalId);
   const board = await boardRepository.getIdBoard(boardId);
-  if (board.userId !== userId) {
+  if (board.userId !== userId && role !== "ADMIN") {
     throw new Error("게시글의 작성자가 아닙니다.");
   }
 
