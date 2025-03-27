@@ -38,6 +38,7 @@ const getWishlists = async (userId, boothId) => {
     where: {
       userId: userId,
       boothId: boothId,
+      status: "PENDING",
     },
     include: {
       menu: {
