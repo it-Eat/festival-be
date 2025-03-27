@@ -38,7 +38,7 @@ io.on("connection", (socket) => {
 });
 
 export const sendNotification = (userId, notification) => {
-  io.to(`user_${userId}`).emit("new_notification", notification);
+  io.send(`user_${userId}`).emit("new_notification", notification);
 };
 
 const allowedOrigins = ["http://localhost:5173"];
