@@ -52,8 +52,8 @@ const deleteWishlist = async (wishlistId) => {
   });
 };
 
-const getWishlists = (userId, boothId) => {
-  return prisma.wishList.findMany.groupBy(boothId)({
+const getWishlists = async (userId, boothId) => {
+  const wishlists = await prisma.wishList.findMany({
     where: {
       userId: userId,
       boothId: boothId,
@@ -74,6 +74,11 @@ const getWishlists = (userId, boothId) => {
       },
     },
   });
+
+  // data 배열로 직접 반환
+  return {
+    data: wishlists,
+  };
 };
 
 const getWaitingComment = async (wishlistId) => {
