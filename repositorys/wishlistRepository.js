@@ -19,7 +19,7 @@ const createWishlist = async (cartItem) => {
       },
     });
   } else {
-    prisma.wishList.create({
+    return await prisma.wishList.create({
       data: cartItem,
     });
   }
