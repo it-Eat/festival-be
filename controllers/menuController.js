@@ -32,14 +32,15 @@ const getMenuController = asyncHandle(async (req, res, next) => {
 const patchMenuController = asyncHandle(async (req, res, next) => {
   try {
     const { menuId } = req.params;
-    const { name, price, content } = req.body;
+    const { name, price, content, soldOut } = req.body;
     const menuImage = req.file ? req.file.location : undefined;
     const data = await menuService.patchMenu(
       parseInt(menuId),
       name,
       parseInt(price),
       content,
-      menuImage
+      menuImage,
+      soldOut
     );
     res.status(200).send(data);
   } catch (error) {
