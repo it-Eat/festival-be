@@ -8,8 +8,13 @@ const patchFestivalImg = async (festivalId, mapImage) => {
   return festivalPatch;
 };
 
-const getFestival = async (cursor, limit, keyword) => {
-  const festival = await festivalRepository.getFestival(cursor, limit, keyword);
+const getFestival = async (cursor, limit, keyword, month) => {
+  const festival = await festivalRepository.getFestival(
+    cursor,
+    limit,
+    keyword,
+    month
+  );
   return festival;
 };
 

@@ -16,11 +16,12 @@ const patchFestivalController = asyncHandle(async (req, res, next) => {
 
 const getFestival = asyncHandle(async (req, res, next) => {
   try {
-    const { limit, cursor, keyword } = req.query;
+    const { limit, cursor, keyword, month } = req.query;
     const data = await festivalService.getFestival(
       parseInt(cursor) || null,
       parseInt(limit) || 12,
-      keyword
+      keyword,
+      month
     );
     res.status(200).send(data);
   } catch (error) {
