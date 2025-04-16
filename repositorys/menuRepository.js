@@ -27,7 +27,7 @@ const getMenu = (boothId) => {
   });
 };
 
-const patchMenu = (menuId, name, price, content, menuImage) => {
+const patchMenu = (menuId, name, price, content, menuImage, soldOut) => {
   return prisma.menu.update({
     where: {
       id: menuId,
@@ -37,6 +37,7 @@ const patchMenu = (menuId, name, price, content, menuImage) => {
       price: price,
       content: content,
       image: menuImage,
+      soldOut: soldOut,
     },
   });
 };
