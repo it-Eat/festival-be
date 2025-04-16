@@ -33,20 +33,17 @@ const patchMenuController = asyncHandle(async (req, res, next) => {
   try {
     const { menuId } = req.params;
     const { name, price, content, soldOut } = req.body;
-    const menuImage = req.file ? req.file.location : undefined;
-    if (soldOut == "true") {
-      soldOut = true;
-    } else {
-      soldOut = false;
-    }
+    const menuImage = req.file?.location;
+
     const data = await menuService.patchMenu(
       parseInt(menuId),
       name,
       parseInt(price),
       content,
       menuImage,
-      soldOut
+      soldOut === "true" ? true : false
     );
+
     res.status(200).send(data);
   } catch (error) {
     next(error);
