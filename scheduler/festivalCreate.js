@@ -14,11 +14,14 @@ const createFestival = async () => {
         contentid,
         firstimage,
         addr1,
+        addr2,
         title,
         eventstartdate,
         eventenddate,
       } = festival;
       const festivalCode = parseInt(contentid);
+      const fullAddress = addr2 ? `${addr1} ${addr2}` : addr1;
+
       const festivalData = await prisma.festival.upsert({
         where: { festivalCode },
         update: {
@@ -27,7 +30,7 @@ const createFestival = async () => {
         create: {
           festivalCode,
           mapImage: firstimage,
-          address: addr1,
+          address: fullAddress,
           festivalName: title,
           eventStartDate: eventstartdate,
           eventEndDate: eventenddate,
@@ -36,6 +39,7 @@ const createFestival = async () => {
 
       await userService.createNormalUser({
         userName: contentid,
+        nickname: "관리자",
         password: process.env.COMMON_PASSWORD,
         festivalId: festivalData.id,
       });
