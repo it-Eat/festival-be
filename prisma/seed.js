@@ -325,7 +325,7 @@ const user = [
 
 const booth = [
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 21,
     name: "교촌치킨",
     content: "교촌치킨입니다. 맛있는 치킨을 즐겨보세요.",
@@ -338,7 +338,7 @@ const booth = [
     businessNumber: "asdfa-sdf3241",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 22,
     name: "기영이숯불두마리",
     content: "기영이숯불두마리입니다. 맛있는 숯불구이를 즐겨보세요.",
@@ -351,7 +351,7 @@ const booth = [
     businessNumber: "123-45-67890",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 23,
     name: "명량핫도그",
     content: "명량핫도그입니다. 바삭하고 맛있는 핫도그를 만나보세요.",
@@ -364,7 +364,7 @@ const booth = [
     businessNumber: "234-56-78901",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 24,
     name: "컴포즈커피",
     content: "컴포즈커피입니다. 향긋한 커피 한잔하세요.",
@@ -377,7 +377,7 @@ const booth = [
     businessNumber: "345-67-89012",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 25,
     name: "메가커피",
     content: "메가커피입니다. 다양한 음료를 즐겨보세요.",
@@ -390,7 +390,7 @@ const booth = [
     businessNumber: "456-78-90123",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 26,
     name: "죠스떡볶이",
     content: "죠스떡볶이입니다. 매콤달콤한 떡볶이를 맛보세요.",
@@ -403,7 +403,7 @@ const booth = [
     businessNumber: "567-89-01234",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 27,
     name: "신전떡볶이",
     content: "신전떡볶이입니다. 특별한 맛의 떡볶이를 즐겨보세요.",
@@ -416,7 +416,7 @@ const booth = [
     businessNumber: "678-90-12345",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 28,
     name: "회오리감자",
     content: "회오리감자입니다. 바삭한 감자의 맛을 느껴보세요.",
@@ -429,7 +429,7 @@ const booth = [
     businessNumber: "789-01-23456",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 29,
     name: "닭띠들의 닭꼬치",
     content: "닭띠들의 닭꼬치입니다. 특별한 양념의 닭꼬치를 맛보세요.",
@@ -442,7 +442,7 @@ const booth = [
     businessNumber: "890-12-34567",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 30,
     name: "스시장인 초밥",
     content: "스시장인 초밥입니다. 신선한 초밥을 즐겨보세요.",
@@ -455,7 +455,7 @@ const booth = [
     businessNumber: "901-23-45678",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 31,
     name: "페이스 페인팅",
     content:
@@ -469,7 +469,7 @@ const booth = [
     businessNumber: "901-23-45678",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 32,
     name: "퍼스널 컬러",
     content: "나만의 퍼스널 컬러를 찾아보세요. 전문가의 컨설팅을 받아보세요.",
@@ -482,7 +482,7 @@ const booth = [
     businessNumber: "123-45-67890",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 33,
     name: "무엇이든 물어보살 타로 및 사주",
     content: "당신의 운명이 궁금하다면? 타로와 사주로 알아보는 나의 미래",
@@ -495,7 +495,7 @@ const booth = [
     businessNumber: "234-56-78901",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 34,
     name: "분실물 센터",
     content:
@@ -509,7 +509,7 @@ const booth = [
     businessNumber: "345-67-89012",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 35,
     name: "추억을 저장하세요",
     content:
@@ -523,7 +523,7 @@ const booth = [
     businessNumber: "456-78-90123",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 36,
     name: "안전 활쏘기",
     content:
@@ -537,7 +537,7 @@ const booth = [
     businessNumber: "123-45-67890",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 37,
     name: "석고 방향제 만들기",
     content:
@@ -551,7 +551,7 @@ const booth = [
     businessNumber: "234-56-78901",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 38,
     name: "딱지 치기",
     content:
@@ -565,7 +565,7 @@ const booth = [
     businessNumber: "345-67-89012",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 39,
     name: "공기 놀이",
     content:
@@ -579,7 +579,7 @@ const booth = [
     businessNumber: "456-78-90123",
   },
   {
-    festivalId: 2201,
+    festivalId: 60,
     userId: 40,
     name: "줄넘기",
     content:
@@ -931,7 +931,7 @@ const menu = [
 const board = [
   {
     userId: 1,
-    festivalId: 2201,
+    festivalId: 60,
     title: "프로필 사진 만들고 가요!!",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%8C%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.jpg",
@@ -942,7 +942,7 @@ const board = [
   },
   {
     userId: 2,
-    festivalId: 2201,
+    festivalId: 60,
     title: "여기 꼭 오셔야해요!",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%8C%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B52.jpg",
@@ -953,7 +953,7 @@ const board = [
   },
   {
     userId: 3,
-    festivalId: 2201,
+    festivalId: 60,
     title: "적당한 시간에 사진 한장",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%8C%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B53.jpg",
@@ -964,7 +964,7 @@ const board = [
   },
   {
     userId: 4,
-    festivalId: 2201,
+    festivalId: 60,
     title: "와 여기 사람 진짜 많네요",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%8C%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B54.jpg",
@@ -975,7 +975,7 @@ const board = [
   },
   {
     userId: 5,
-    festivalId: 2201,
+    festivalId: 60,
     title: "군항제는 여좌천에서 사진한방 찍고 가세요!!",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%8C%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B55.png",
@@ -986,7 +986,7 @@ const board = [
   },
   {
     userId: 6,
-    festivalId: 2201,
+    festivalId: 60,
     title: "제가 찍어도 놀랍네요 진짜 이뻐요",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%8C%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B56.jpg",
@@ -997,7 +997,7 @@ const board = [
   },
   {
     userId: 7,
-    festivalId: 2201,
+    festivalId: 60,
     title: "여기 말고 또 어디 가야하나요??",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%8C%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B57.jpg",
@@ -1008,7 +1008,7 @@ const board = [
   },
   {
     userId: 8,
-    festivalId: 2201,
+    festivalId: 60,
     title: "다들 커플이네요 ㅠㅠ",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%8C%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B58.jpg",
@@ -1019,7 +1019,7 @@ const board = [
   },
   {
     userId: 9,
-    festivalId: 2201,
+    festivalId: 60,
     title: "서울에서 왔는데 근처 맛집 있을까요!!?",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8E%E1%85%AE%E1%86%A8%E1%84%8C%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B59.jpg",
@@ -1030,7 +1030,7 @@ const board = [
   },
   {
     userId: 10,
-    festivalId: 2201,
+    festivalId: 60,
     title:
       "안녕하세요, 사진 작가 준비하고있는데 너무 아름답게 사진 촬영해서 공유합니다.",
     images: [
@@ -1043,7 +1043,7 @@ const board = [
   },
   {
     userId: 11,
-    festivalId: 2201,
+    festivalId: 60,
     title: "아이폰 16 주웠어요! 주인 찾아요",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%91%E1%85%A9%E1%86%AB16.jpg",
@@ -1054,7 +1054,7 @@ const board = [
   },
   {
     userId: 12,
-    festivalId: 2201,
+    festivalId: 60,
     title: "아이폰 14 주웠어요! 주인 찾아가세요",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%91%E1%85%A9%E1%86%AB16.jpg",
@@ -1065,19 +1065,19 @@ const board = [
   },
   {
     userId: 13,
-    festivalId: 2201,
+    festivalId: 60,
     title: "아이폰 15 Plus 주인분 찾아요",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%91%E1%85%A9%E1%86%AB16.jpg",
     ],
     content:
       "일단 제가 들고 있습니다. 문자 주세요!! 본인 확인(얼굴 인식) 확인하고 돌려드립니다",
-    boardType: "LOS",
+    boardType: "LOSS",
     lossType: "GET",
   },
   {
     userId: 14,
-    festivalId: 2201,
+    festivalId: 60,
     title: "에어팟 주인분 찾아요",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8B%E1%85%A6%E1%84%8B%E1%85%A5%E1%84%91%E1%85%A1%E1%86%BA.jpeg",
@@ -1088,7 +1088,7 @@ const board = [
   },
   {
     userId: 15,
-    festivalId: 2201,
+    festivalId: 60,
     title: "에어팟 2세대 잃어버리신분 분실물 센터에 보관해뒀습니다.",
     images: [
       "https://festivals3ss.s3.us-east-1.amazonaws.com/profiles/%E1%84%8B%E1%85%A6%E1%84%8B%E1%85%A5%E1%84%91%E1%85%A1%E1%86%BA.jpeg",
@@ -1099,7 +1099,7 @@ const board = [
   },
   {
     userId: 16,
-    festivalId: 2201,
+    festivalId: 60,
     title: "갤럭시 폴드 잃어 버렸습니다 ㅠㅠ",
     images: [],
     content: "사례 가능합니다. 친구폰 010-0000-4535 연락주세요 ",
@@ -1108,7 +1108,7 @@ const board = [
   },
   {
     userId: 17,
-    festivalId: 2201,
+    festivalId: 60,
     title: "갤럭시 플립 잃어 버렸습니다",
     images: [],
     content: "제발 분실물센터에 보관해주세요 ㅠㅠ",
@@ -1117,7 +1117,7 @@ const board = [
   },
   {
     userId: 18,
-    festivalId: 2201,
+    festivalId: 60,
     title: "에어팟 프로 잃어 버렸습니다",
     images: [],
     content: "제발 분실물센터에 보관해주세요 ㅠㅠ",
@@ -1126,7 +1126,7 @@ const board = [
   },
   {
     userId: 19,
-    festivalId: 2201,
+    festivalId: 60,
     title: "갤럭시 울트라 잃어 버렸습니다",
     images: [],
     content: "찾아 주시면 사례 합니다!! 제발 댓글 남겨주세요!!",
@@ -1135,7 +1135,7 @@ const board = [
   },
   {
     userId: 20,
-    festivalId: 2201,
+    festivalId: 60,
     title: "아이폰 잃어버렸어요ㅠ",
     images: [],
     content: "교촌치킨 근처에서 아이폰 주우신 분 있으신가요?",
@@ -1308,20 +1308,7 @@ const review = [
 
 async function main() {
   try {
-    await prisma.notification.deleteMany();
-    await prisma.notice.deleteMany();
-    await prisma.comment.deleteMany();
-    await prisma.board.deleteMany();
-    await prisma.review.deleteMany();
-    await prisma.wishList.deleteMany();
-    await prisma.menu.deleteMany();
-    await prisma.booth.deleteMany();
-    await prisma.participation.deleteMany();
-    await prisma.pay.deleteMany();
-    await prisma.user.deleteMany();
-    await prisma.festival.deleteMany();
-
-    await prisma.user.createMany({ data: user });
+    // await prisma.user.createMany({ data: user });
     await prisma.booth.createMany({ data: booth });
     await prisma.menu.createMany({ data: menu });
     await prisma.board.createMany({ data: board });
@@ -1329,6 +1316,8 @@ async function main() {
     await prisma.review.createMany({ data: review });
   } catch (error) {
     console.error("Error seeding data:", error);
+  } finally {
+    await prisma.$disconnect();
   }
 }
 
