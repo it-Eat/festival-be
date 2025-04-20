@@ -1,6 +1,4 @@
-import participationRepository from "../repositorys/participationRepository.js";
 import notificationRepository from "../repositorys/notificationRepository.js";
-import boardRepository from "../repositorys/boardRepository.js";
 
 const getIdNotification = async (userId, notificationId) => {
   const data = await notificationRepository.getIdNotification(
