@@ -18,6 +18,9 @@ const createFestival = async () => {
         title,
         eventstartdate,
         eventenddate,
+        mapx,
+        mapy,
+        tel,
       } = festival;
       const festivalCode = parseInt(contentid);
       const fullAddress = addr2 ? `${addr1} ${addr2}` : addr1;
@@ -26,6 +29,9 @@ const createFestival = async () => {
         where: { festivalCode },
         update: {
           mapImage: firstimage,
+          mapx,
+          mapy,
+          telNumber: tel,
         },
         create: {
           festivalCode,
@@ -34,6 +40,9 @@ const createFestival = async () => {
           festivalName: title,
           eventStartDate: eventstartdate,
           eventEndDate: eventenddate,
+          mapx,
+          mapy,
+          telNumber: tel,
         },
       });
 
