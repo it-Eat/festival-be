@@ -46,16 +46,18 @@ const createNotice = async (userId, festivalId, userRole, content) => {
 
   await Promise.all(
     userList.map(async (user) => {
-      await notificationRepository.createNoticeNotification(
-        user.userId,
-        content
-      );
-      sendNotification(user.userId, {
-        type: "notice",
-        message: content,
-        data: { noticeId: data.id },
-        createdAt: new Date(),
-      });
+      if (user.userId != userId) {
+        await notificationRepository.createNoticeNotification(
+          user.userId,
+          content
+        );
+        sendNotification(user.userId, {
+          type: "notice",
+          message: content,
+          data: { noticeId: data.id },
+          createdAt: new Date(),
+        });
+      }
     })
   );
   return data;
