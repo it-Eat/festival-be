@@ -69,6 +69,7 @@ const createNormalUser = async (data) => {
     const createdUser = await prisma.user.create({
       data: {
         userName: data.userName,
+        nickname: data.nickname || null,
         role: "ADMIN",
         password: hashedPassword,
       },
