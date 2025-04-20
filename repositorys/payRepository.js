@@ -29,6 +29,7 @@ const getPaysByUserId = (userId) => {
           },
         },
       },
+      isReviewed: true,
       _count: {
         select: {
           wishList: true,
