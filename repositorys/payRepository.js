@@ -51,6 +51,7 @@ const getPay = (payId) => {
       waitingNumber: true,
       createdAt: true,
       boothId: true,
+      isReviewed: true,
       wishList: {
         select: {
           id: true,
