@@ -7,7 +7,7 @@ const router = express.Router();
 router.route("/").get(reviewController.getReview);
 
 router
-  .route("/:boothId")
+  .route("/:payId")
   .post(
     passport.authenticate("access-token", { session: false }),
     reviewController.createReview
