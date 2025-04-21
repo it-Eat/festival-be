@@ -11,7 +11,7 @@ const deleteReview = async (userRole, reviewId) => {
 const createReview = async (userId, boothId, payId, content, score) => {
   // payRepository에서 userId, boothId 비교한다음에 결제 내역을 확인한다.
   const payReview = await payRepository.getPayReview(payId);
-  if (payReview) {
+  if (payReview.isReviewed === true) {
     throw new Error("이미 리뷰를 작성하였습니다.");
   }
   const data = await reviewRepository.createReview(
