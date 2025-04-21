@@ -9,11 +9,12 @@ const deleteReview = async (reviewId) => {
   return data;
 };
 
-const createReview = async (userId, boothId, content, score) => {
+const createReview = async (userId, boothId, payId, content, score) => {
   const data = await prisma.review.create({
     data: {
       userId: userId,
       boothId: boothId,
+      payId: payId,
       content: content,
       score: score,
     },

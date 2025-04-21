@@ -128,14 +128,20 @@ const getPayByBoothId = async (boothId, page, pageSize, startDate, endDate) => {
   return pay;
 };
 
-const getPayReview = async (userId, boothId) => {
-  const pay = await prisma.pay.findFirst({
+const getPayReview = async (payId) => {
+  const pay = await prisma.pay.findUnique({
     where: {
-      userId,
-      boothId,
+      id: payId,
     },
   });
   return pay;
+};
+
+const updatePay = async (payId) => {
+  await prisma.pay.update({
+    where: { id: payId },
+    data: { isReviewed: true },
+  });
 };
 
 export default {
@@ -144,4 +150,5 @@ export default {
   getPay,
   getPayByBoothId,
   getPayReview,
+  updatePay,
 };
