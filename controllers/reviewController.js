@@ -4,11 +4,12 @@ import asyncHandle from "../middleware/error/asyncHandler.js";
 const createReviewController = asyncHandle(async (req, res, next) => {
   try {
     const { id: userId } = req.user;
-    const { boothId } = req.params;
+    const { boothId, payId } = req.params;
     const { content, score } = req.body;
     const data = await reviewService.createReview(
       parseInt(userId),
       parseInt(boothId),
+      parseInt(payId),
       content,
       parseInt(score)
     );
