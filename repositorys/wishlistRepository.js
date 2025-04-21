@@ -46,6 +46,7 @@ const getWishlists = async (userId, boothId) => {
           id: true,
           name: true,
           price: true,
+          image: true,
         },
       },
       booth: {
