@@ -129,7 +129,7 @@ const getPayByBoothId = async (boothId, page, pageSize, startDate, endDate) => {
 };
 
 const getPayReview = async (payId) => {
-  const pay = await prisma.pay.findFirst({
+  const pay = await prisma.pay.findUnique({
     where: {
       id: payId,
     },
