@@ -40,26 +40,13 @@ const createNotice = async (userId, festivalId, userRole, content) => {
 
   const data = await noticeRepository.createNotice(userId, festivalId, content);
 
-  const userList = await participationRepository.participationManyCheck(
-    festivalId
-  );
+  sendNotification(festivalId, {
+    type: "notice",
+    message: content,
+    data: { noticeId: data.id },
+    createdAt: new Date(),
+  });
 
-  await Promise.all(
-    userList.map(async (user) => {
-      if (user.userId != userId) {
-        await notificationRepository.createNoticeNotification(
-          user.userId,
-          content
-        );
-        sendNotification(user.userId, {
-          type: "notice",
-          message: content,
-          data: { noticeId: data.id },
-          createdAt: new Date(),
-        });
-      }
-    })
-  );
   return data;
 };
 

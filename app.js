@@ -31,14 +31,32 @@ const io = new Server(httpServer, {
   },
 });
 
+// socket 연결
 io.on("connection", (socket) => {
-  socket.on("authenticate", (userId) => {
+  //축제 공지사항 연결
+  socket.on("join_festival", (festivalId) => {
+    socket.join(`festival_${festivalId}`);
+  });
+  // userId 연결
+  socket.on("join_user", (userId) => {
     socket.join(`user_${userId}`);
+  });
+  socket.on("leave_festival", (festivalId) => {
+    socket.leave(`festival_${festivalId}`);
+  });
+  socket.on("leave_user", (userId) => {
+    socket.leave(`user_${userId}`);
   });
 });
 
-export const sendNotification = (userId, notification) => {
-  io.send(`user_${userId}`).emit("new_notification", notification);
+//공지사항 알림
+export const sendNotification = (festivalId, notification) => {
+  io.to(`festival_${festivalId}`).emit("new_notification", notification);
+};
+
+//댓글 알림
+export const sendUser = (userId, notification) => {
+  io.to(`user_${userId}`).emit("new_userNotification", notification);
 };
 
 const allowedOrigins = ["http://localhost:5173"];
