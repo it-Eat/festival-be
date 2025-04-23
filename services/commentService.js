@@ -2,7 +2,7 @@ import commentRepository from "../repositorys/commentRepository.js";
 import checkUser from "../utils/checkUser.js";
 import notificationRepository from "../repositorys/notificationRepository.js";
 import boardRepository from "../repositorys/boardRepository.js";
-import { sendNotification } from "../app.js";
+import { sendUser } from "../app.js";
 
 const createComment = async (
   userId,
@@ -20,7 +20,7 @@ const createComment = async (
   const board = await boardRepository.getIdBoard(boardId);
   if (board.userId !== userId) {
     await notificationRepository.createCommentNotification(board, nickname);
-    sendNotification(board.userId, {
+    sendUser(board.userId, {
       type: "comment",
       message: `${nickname}님이 댓글을 달았습니다.`,
       data: { commentId: comment.id },
