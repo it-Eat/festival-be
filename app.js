@@ -26,7 +26,7 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.FRONT_URL,
     methods: ["GET", "POST"],
   },
 });
@@ -41,7 +41,7 @@ export const sendNotification = (userId, notification) => {
   io.send(`user_${userId}`).emit("new_notification", notification);
 };
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [process.env.FRONT_URL];
 const corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
