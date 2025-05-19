@@ -26,3 +26,4 @@ jobs:
         env:
           DATA_SERVICE_URL: ${{ secrets.DATA_SERVICE_URL }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          COMMON_PASSWORD: ${{ secrets.COMMON_PASSWORD }}
