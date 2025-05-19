@@ -3,6 +3,7 @@ name: Update Festival Data
 on:
   schedule:
     - cron: "0 0 * * *" # 매일 00시에 실행
+  workflow_dispatch: # 수동 실행을 위한 트리거 추가
 
 jobs:
   update-festival:
