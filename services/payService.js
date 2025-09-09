@@ -1,6 +1,8 @@
 import payRepository from "../repositorys/payRepository.js";
 import wishlistRepository from "../repositorys/wishlistRepository.js";
 import boothRepository from "../repositorys/boothRepository.js";
+import { sendUser } from "../app.js";
+import { userRepository } from "../repositorys/userRepository.js";
 
 function randomWaitingNumber(userId) {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -35,6 +37,7 @@ const createPay = async (userId, wishlistIds, totalPrice, payType) => {
     if (isPay.some((item) => item.status === "PAID")) {
       throw new Error("이미 결제한 내역입니다.");
     }
+    const userInfo = await userRepository.getUserById(userId);
 
     // pay 생성
     const pay = await payRepository.createPay({
@@ -54,6 +57,13 @@ const createPay = async (userId, wishlistIds, totalPrice, payType) => {
         wishlistRepository.updateWishlistStatus(id, "PAID")
       )
     );
+
+    sendUser(boothId.userId, {
+      type: "pay",
+      message: "결제가 완료되었습니다.",
+      data: { payId: pay.id, userInfo: userInfo },
+      createdAt: new Date(),
+    });
 
     return {
       pay,

@@ -3,6 +3,7 @@ name: Update Festival Data
 on:
   schedule:
     - cron: "0 0 * * *" # 매일 00시에 실행
+  workflow_dispatch: # 수동 실행을 위한 트리거 추가
 
 jobs:
   update-festival:
@@ -15,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16 # Node.js 버전 설정
+          node-version: 20 # Node.js 버전 설정
 
       - name: Install dependencies
         run: npm install
@@ -25,3 +26,4 @@ jobs:
         env:
           DATA_SERVICE_URL: ${{ secrets.DATA_SERVICE_URL }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          COMMON_PASSWORD: ${{ secrets.COMMON_PASSWORD }}
