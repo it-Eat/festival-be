@@ -2,7 +2,7 @@ import payRepository from "../repositorys/payRepository.js";
 import wishlistRepository from "../repositorys/wishlistRepository.js";
 import boothRepository from "../repositorys/boothRepository.js";
 import { sendUser } from "../app.js";
-import { userRepository } from "../repositorys/userRepository.js";
+import userRepository from "../repositorys/userRepository.js";
 
 function randomWaitingNumber(userId) {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
