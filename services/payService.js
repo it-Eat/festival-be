@@ -1,8 +1,9 @@
 import payRepository from "../repositorys/payRepository.js";
 import wishlistRepository from "../repositorys/wishlistRepository.js";
 import boothRepository from "../repositorys/boothRepository.js";
-import { sendUser } from "../app.js";
+import { sendBooth } from "../app.js";
 import userRepository from "../repositorys/userRepository.js";
+import menuRepository from "../repositorys/menuRepository.js";
 
 function randomWaitingNumber(userId) {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -58,10 +59,11 @@ const createPay = async (userId, wishlistIds, totalPrice, payType) => {
       )
     );
     const boothInfo = await boothRepository.getBooth(boothId);
-
-    sendUser(boothInfo.user.id, {
+    const menuInfo = await menuRepository.getIdMenu(wishlistItems[0].menuId);
+    sendBooth(boothInfo.user.id, {
       type: "pay",
-      message: "결제가 완료되었습니다.",
+      message: `${userInfo.nickname}님 이 ${menuInfo.name}을 결제를 완료했습니다.
+      `,
       data: {
         wishlistItems: wishlistItems,
         payId: pay,
