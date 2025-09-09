@@ -59,6 +59,10 @@ export const sendUser = (userId, notification) => {
   io.to(`user_${userId}`).emit("new_userNotification", notification);
 };
 
+export const sendBooth = (userId, notification) => {
+  io.to(`user_${userId}`).emit("new_boothNotification", notification);
+};
+
 const allowedOrigins = [process.env.FRONT_URL];
 const corsOptions = {
   credentials: true,
