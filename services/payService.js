@@ -4,6 +4,7 @@ import boothRepository from "../repositorys/boothRepository.js";
 import { sendBooth } from "../app.js";
 import userRepository from "../repositorys/userRepository.js";
 import menuRepository from "../repositorys/menuRepository.js";
+import prisma from "../utils/prismaClient.js";
 
 function randomWaitingNumber(userId) {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -41,23 +42,50 @@ const createPay = async (userId, wishlistIds, totalPrice, payType) => {
     const userInfo = await userRepository.getUserById(userId);
 
     // pay 생성
-    const pay = await payRepository.createPay({
-      userId,
-      price: totalPrice,
-      payType,
-      waitingNumber,
-      boothId,
-      wishList: {
-        connect: wishlistIds.map((id) => ({ id })), // wishlist와 연결
-      },
-    });
+    // const pay = await payRepository.createPay({
+    //   userId,
+    //   price: totalPrice,
+    //   payType,
+    //   waitingNumber,
+    //   boothId,
+    //   wishList: {
+    //     connect: wishlistIds.map((id) => ({ id })), // wishlist와 연결
+    //   },
+    // });
 
-    // 선택적: wishlist 상태 업데이트
-    await Promise.all(
-      wishlistIds.map((id) =>
-        wishlistRepository.updateWishlistStatus(id, "PAID")
-      )
-    );
+    // // 선택적: wishlist 상태 업데이트
+    // await Promise.all(
+    //   wishlistIds.map((id) =>
+    //     wishlistRepository.updateWishlistStatus(id, "PAID")
+    //   )
+    // );
+    const result = await prisma.$transaction(async (tx) => {
+      // Pay 생성
+      const pay = await tx.pay.create({
+        data: {
+          userId,
+          price: totalPrice,
+          payType,
+          waitingNumber,
+          boothId,
+          wishList: {
+            connect: wishlistIds.map((id) => ({ id })),
+          },
+        },
+      });
+
+      // WishList 상태 업데이트
+      await Promise.all(
+        wishlistIds.map((id) =>
+          tx.wishList.update({
+            where: { id },
+            data: { status: "PAID" },
+          })
+        )
+      );
+
+      return pay;
+    });
     const boothInfo = await boothRepository.getBooth(boothId);
     const menuInfo = await menuRepository.getIdMenu(wishlistItems[0].menuId);
     sendBooth(boothInfo.user.id, {
@@ -66,14 +94,14 @@ const createPay = async (userId, wishlistIds, totalPrice, payType) => {
       `,
       data: {
         wishlistItems: wishlistItems,
-        payId: pay,
+        payId: result,
         userInfo: userInfo,
       },
       createdAt: new Date(),
     });
 
     return {
-      pay,
+      result,
       waitingTime: wishlistItems[0].booth.waitingTime,
     };
   } catch (error) {
