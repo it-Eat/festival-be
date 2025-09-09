@@ -57,11 +57,16 @@ const createPay = async (userId, wishlistIds, totalPrice, payType) => {
         wishlistRepository.updateWishlistStatus(id, "PAID")
       )
     );
+    const boothInfo = await boothRepository.getBooth(boothId);
 
-    sendUser(boothId.userId, {
+    sendUser(boothInfo.user.id, {
       type: "pay",
       message: "결제가 완료되었습니다.",
-      data: { payId: pay.id, userInfo: userInfo },
+      data: {
+        wishlistItems: wishlistItems,
+        payId: pay,
+        userInfo: userInfo,
+      },
       createdAt: new Date(),
     });
 
